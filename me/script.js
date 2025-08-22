@@ -22,6 +22,14 @@ const arseusuData = [
   { type: "フェアリー", image: "arseusimage/Arseus-Fairy.png" , image2: "arseusimage-s/Arseus-Fairy-s.png" },
 ];
 
+const group = [
+  [0,3,12],
+  [2,5,9],
+  [7,10,13,14,17],
+  [1,6,8],
+  [4,11]
+];
+
 // ================================
 // 2) DOM要素
 // ================================
@@ -137,4 +145,5 @@ nextBtn.onclick = () => renderQuiz(createArseusQuiz());
 // 8) 最初の1問を表示
 // ================================
 renderQuiz(createArseusQuiz());
+
 
