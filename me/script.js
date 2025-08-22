@@ -38,6 +38,15 @@ const choicesEl = document.getElementById("choices");
 const resultEl = document.getElementById("result");
 const nextBtn = document.getElementById("next-btn");
 
+
+function getRandomArseusIndex(){
+  if(Math.random() < 0.3){
+    const selectGroup = group[Math.floor(Math.randomo() * grouop.length)];
+    return selectedGroup[Math.floor(Math.random() * selectedGroup.length)];
+  } else {
+    return Math.floor(Math.random() * arseusList.length);
+  }
+}
 // ================================
 // 3) 問題作成関数
 // ================================
@@ -145,5 +154,6 @@ nextBtn.onclick = () => renderQuiz(createArseusQuiz());
 // 8) 最初の1問を表示
 // ================================
 renderQuiz(createArseusQuiz());
+
 
 
