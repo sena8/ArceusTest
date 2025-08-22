@@ -13,7 +13,7 @@ const arseusuData = [
   { type: "じめん", image: "arseusimage/Arseus-Ground.png" },
   { type: "ひこう", image: "arseusimage/Arseus-Flying.png" },
   { type: "エスパー", image: "arseusimage/Arseus-Psychic.png" },
-  { type: "むし", image: "arseusimage/Arseus-Bug.png" },
+  { type: "むし", image: "arseusimage/Arseus-Bag.png" },
   { type: "いわ", image: "arseusimage/Arseus-Rock.png" },
   { type: "ゴースト", image: "arseusimage/Arseus-Ghost.png" },
   { type: "ドラゴン", image: "arseusimage/Arseus-Dragon.png" },
@@ -140,3 +140,4 @@ nextBtn.onclick = () => renderQuiz(createArseusQuiz());
 // 8) 最初の1問を表示
 // ================================
 renderQuiz(createArseusQuiz());
+
