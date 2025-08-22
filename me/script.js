@@ -51,45 +51,34 @@ function getRandomArseusIndex(){
 // 3) 問題作成関数
 // ================================
 function createArseusQuiz() {
-  const correctData = arseusuData[Math.floor(Math.random() * arseusuData.length)];
-  const mode = Math.random() < 0.5 ? 0 : 1;
+  const correctIndex = getRandomArseusIndex();
+  const correctData = arseusuData[correctIndex];
 
-  // 選択肢作成
-  const getChoices = (key, correct) => {
-    const pool = arseusuData.map(d => d[key]).filter(v => v !== correct);
-    const result = [];
-    while (result.length < 3) {
-      const pick = pool[Math.floor(Math.random() * pool.length)];
-      if (!result.includes(pick)) result.push(pick);
+  const options = [correctData];
+  while(options.length < 4){
+    const candidate = arseusList[getRandomArseusIndex()];
+    if(!options.includes(candidate)){
+      options.push(candidate);
     }
-    return shuffle([correct, ...result]);
-  };
-
-  if (mode === 0) {
-    if (Math.random() < 0.1) {
-        return{
-            type: "image-to-type",
-            question: correctData.image2,
-            options: getChoices("type", correctData.type),
-            answer: correctData.type
-        }
-    }
-    else
-    {
-        return {
-            type: "image-to-type",
-            question: correctData.image,
-            options: getChoices("type", correctData.type),
-            answer: correctData.type
-        };
-    }
-  } else {
-    return {
+  }
+  for (let i = options.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [options[i], options[j]] = [options[j], options[i]];
+  }
+  if(Math.random<0.5){
+    return{
       type: "type-to-image",
       question: correctData.type,
-      options: getChoices("image", correctData.image),
+      optionis: options.map(o => o.image),
       answer: correctData.image
     };
+}else{
+    return{
+      type: "image-to-type",
+      question: correctData.image,
+      options: options.map(o => o.image),
+      answer: correctData.type
+    }
   }
 }
 
@@ -154,6 +143,7 @@ nextBtn.onclick = () => renderQuiz(createArseusQuiz());
 // 8) 最初の1問を表示
 // ================================
 renderQuiz(createArseusQuiz());
+
 
 
 
